@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Company2
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.15.
@@ -25,3 +26,27 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+=======
+# an-Integrated-Client-Consultant-Interaction-Management-System
+Optimizing professional workflows through an Integrated Client-Consultant Interaction Management System developed for ORBIT Engineering Solutions.
+>>>>>>> 9eabeb53404b2ca99a5e90fbba538bddc57f204c
+# Integrated Client-Consultant Interaction Management System
+
+Optimizing professional workflows through an Integrated Client-Consultant Interaction Management System developed for **ORBIT Engineering Solutions**.
+
+## Project Overview
+This is an Angular-based management system designed to streamline communication and task handling between clients and consultants.
+
+---
+
+## Technical Details (Angular)
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.15.
+
+### Development server
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+
+### Build
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+
+### Further help
+To get more help on the Angular CLI use `ng help` or check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
