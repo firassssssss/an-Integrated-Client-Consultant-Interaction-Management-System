@@ -50,6 +50,9 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ### Further help
 To get more help on the Angular CLI use `ng help` or check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+############################################################################################################################################
+### commands >C:\stage2\company2\fastapi-backend> python -m uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+### C:\stage2\company2> ng serve
 
 <img width="1919" height="860" alt="Image" src="https://github.com/user-attachments/assets/ef447b71-89f6-43c4-bd3f-6cf1f4bab2bb" />
 
