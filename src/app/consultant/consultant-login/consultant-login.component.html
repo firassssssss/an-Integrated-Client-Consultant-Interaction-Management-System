@@ -1,0 +1,35 @@
+<!-- <video *ngIf="!activeRoute" #videoBG autoplay muted loop playsinline 
+       disablePictureInPicture preload="auto" class="video-background">
+  <source src="assets/ytb.mp4" type="video/mp4">
+</video>
+
+<div *ngIf="!activeRoute" class="gradient-overlay"></div>
+
+<div class="login-container">
+  <h2>Consultant Login</h2>
+  
+  <form (ngSubmit)="onSubmit()">
+    <label for="email">Email:</label>
+    <input id="email" name="email" type="email" [(ngModel)]="email" required />
+
+    <label for="password">Password:</label>
+    <input id="password" name="password" type="password" [(ngModel)]="password" required />
+
+    <button type="submit">Login</button> 
+  </form>
+</div>
+
+<router-outlet></router-outlet> -->
+<div class="login-container">
+  <h2>Consultant Login</h2>
+  
+  <form (ngSubmit)="onSubmit()">
+    <label for="email">Email:</label>
+    <input id="email" name="email" type="email" [(ngModel)]="email" required />
+
+    <label for="password">Password:</label>
+    <input id="password" name="password" type="password" [(ngModel)]="password" required />
+
+    <button type="submit">Login</button>
+  </form>
+</div>

@@ -1,0 +1,119 @@
+<!-- 
+
+
+<div [class.fullscreen]="isZonesRoute()">
+  <aside class="left-sidebar" *ngIf="!isZonesRoute()">
+    <div class="sidebar-item">
+      <img src="assets/set.png" alt="config icon" />
+      <p>Configuration</p>
+    </div>
+    <button routerLink="zones">Zones (map)</button>
+    <button routerLink="devices">Devices</button>
+    <button routerLink="tickets">Tickets</button>
+    <button
+      class="toggle-sidebar"
+      (click)="toggleRightSidebar()"
+      [style.width.px]="50"
+      [style.height.px]="50"
+      [style.borderRadius.%]="50"
+      style="display: flex; align-items: center; justify-content: center; padding: 0; background-color: rgb(0, 124, 6); margin-top: 400px; color: white; font-weight: bold; font-size: 1rem;"
+    >
+      {{ responseCount +'+'}} 
+    </button>
+
+  </aside>
+
+  <div class="content-container" [class.zones-background]="isZonesRoute()">
+    <router-outlet></router-outlet>
+  </div>
+
+  <button
+    class="open-sidebar-btn"
+    (click)="openSidebar()"
+    *ngIf="!isZonesRoute()">
+    ➕
+  </button>
+
+ 
+  <aside class="right-sidebar" *ngIf="rightSidebarOpen">
+    <button  style =" background-color: rgb(255, 0, 0);"class="close-sidebar" (click)="toggleRightSidebar()">×</button>
+    <div class="sidebar-content">
+      <h3>📩 Device Responses</h3>
+      <div *ngIf="responses.length === 0" class="empty">Aucune réponse trouvée.</div>
+      <div *ngFor="let res of responses" class="response-card">
+        <p><strong>{{ res.device_id }}</strong></p>
+        <p>{{ res.message }}</p>
+        <p class="timestamp">{{ res.timestamp | date: 'short' }}</p>
+      </div>
+    </div>
+  </aside>
+</div>
+ -->
+<div [class.fullscreen]="isZonesRoute()">
+  <aside class="left-sidebar" *ngIf="!isZonesRoute()">
+    <div class="sidebar-item">
+      <img src="assets/set.png" alt="config icon" />
+      <p>Configuration</p>
+    </div>
+    <button routerLink="zones">gérer carte</button>
+    <button routerLink="devices">Gérer machine</button>
+    <button routerLink="tickets">ajouter Ticket</button>
+    <button
+      class="toggle-sidebar"
+      (click)="toggleRightSidebar()"
+      [style.width.px]="50"
+      [style.height.px]="50"
+      [style.borderRadius.%]="50"
+      style="display: flex; align-items: center; justify-content: center; padding: 0; background-color: rgb(0, 124, 6); margin-top: 400px; color: white; font-weight: bold; font-size: 1rem;"
+    >
+      {{ responseCount + '+' }} 
+    </button>
+  </aside>
+
+  <div class="content-container" [class.zones-background]="isZonesRoute()">
+    <router-outlet></router-outlet>
+  </div>
+
+  <button
+    class="open-sidebar-btn"
+    (click)="openSidebar()"
+    *ngIf="!isZonesRoute()"
+  >
+    ➕
+  </button>
+
+  <!-- ✅ Right sidebar with responses -->
+  <aside class="right-sidebar" *ngIf="rightSidebarOpen">
+    <button
+      class="close-sidebar"
+      (click)="toggleRightSidebar()"
+      style="background-color: rgb(255, 0, 0);"
+    >
+      ×
+    </button>
+
+    <div class="sidebar-content">
+      <h3>📩 Device Responses</h3>
+
+      <!-- 🗑️ Delete Button -->
+      <button
+        (click)="deleteAllResponses()"
+        style="margin-bottom: 10px; background-color: rgb(255, 60, 60); color: white; padding: 5px 10px; border: none; border-radius: 5px;"
+      >
+        🗑️ Delete All Responses
+      </button>
+
+      <!-- No Responses -->
+      <div *ngIf="responses.length === 0" class="empty">
+        Aucune réponse trouvée.
+      </div>
+
+      <!-- Responses List -->
+      <div *ngFor="let res of responses" class="response-card">
+        <p><strong>{{ res.device_id }}</strong></p>
+        <p>{{ res.message }}</p>
+        <p class="timestamp">{{ res.timestamp | date: 'short' }}</p>
+      </div>
+    </div>
+  </aside>
+</div>

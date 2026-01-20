@@ -1,0 +1,93 @@
+/* Form container */
+.form-container {
+  
+  background-color: #ffffff;
+  padding: 32px;
+  max-width: 620px;
+  margin: 40px auto;
+  margin-left: 500px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Heading */
+.form-container h2 {
+  
+  margin-bottom: 24px;
+  font-size: 24px;
+  color: #333;
+  text-align: center;
+}
+
+/* Labels */
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #444;
+  margin-top: 16px;
+}
+
+/* Inputs and textarea */
+input,
+textarea,
+select {
+  margin-right:100px ;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.2s;
+  margin-bottom: 8px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #1976d2;
+  outline: none;
+}
+
+/* Textarea specific */
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* Submit button */
+button[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  background-color: #308af1;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  margin-top: 24px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #eded18;
+  transform: translateY(-2px);
+}
+
+button[type="submit"]:active {
+  background-color: #0d47a1;
+  transform: translateY(0);
+}
+
+/* Responsive layout */
+@media (max-width: 600px) {
+  .form-container {
+    padding: 20px;
+  }
+
+  button[type="submit"] {
+    font-size: 15px;
+  }
+}

@@ -1,0 +1,233 @@
+.container {
+  max-width: 1200px;
+  margin: 400px;
+  padding: 20px;
+  padding-left: 1px; /* matches your left sidebar width 220px + 20px gap */
+  padding-right: 300px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h2 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+h3 {
+  color: #2c3e50;
+  margin: 30px 0 15px;
+  font-size: 20px;
+}
+
+form {    
+  margin-left: 87px;
+  width: 1080px;
+  background-color: #6194f3;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #000000;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px; /* Adjust this value for more or less roundness */
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 100%; /* Optional – ensures full width inside form */
+  box-sizing: border-box; /* Prevents overflow */
+}
+
+
+input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+button[type="submit"] {
+  display: block;              /* Makes the button take a full line */
+  margin: 20px auto 0 auto;
+  background-color: #6194f3;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: #6194f3;
+}
+
+button[type="submit"]:disabled {
+  background-color: #95a5a6;
+  cursor: not-allowed;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background-color: #ecf0f1;
+  margin: 25px 0;
+}
+
+
+
+input[type="text"][ngModel] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  table {
+    display: block;
+    overflow-x: auto;
+  }
+  
+  .container {
+    padding: 10px;
+  }
+  
+  th, td {
+    padding: 8px 10px;
+  }
+}
+
+
+
+/* 
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+thead {
+  background-color: #3498db;
+  color: white;
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  font-weight: 600;
+}
+
+tbody tr:hover {
+  background-color: #f5f5f5;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+} */
+
+
+
+h2 {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+table {
+  width: 80%;
+  margin-right: 50000000px ;
+  border-collapse: collapse;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+thead {
+  background-color: #6194f3;
+  color: white;
+}
+
+thead th {
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+tbody td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 13px;
+  color: #444;
+}
+
+tbody tr:hover {
+  background-color: #f5f7fa;
+  transition: background-color 0.2s;
+}
+
+@media (max-width: 768px) {
+  table {
+    font-size: 12px;
+  }
+
+  thead th,
+  tbody td {
+    padding: 10px;
+  }
+}
+/* General button style */
+button {
+  background-color: #ecf800; /* Primary blue */
+  color: rgb(33, 32, 32);
+  padding: 10px 22px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  
+  display: inline-block;
+  min-width: 150px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Hover effect */
+button:hover:not(:disabled) {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Disabled state */
+button:disabled {
+  background-color: #bdc3c7;
+  color: #f0f0f0;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}

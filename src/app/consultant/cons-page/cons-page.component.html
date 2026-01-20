@@ -1,0 +1,101 @@
+<!-- <div class="container" >
+  <aside class="left-sidebar" >
+    <div class="sidebar-item">
+      <img src="assets/set.png" alt="config icon" />
+      <p>Configuration</p>
+    </div>
+    <button routerLink="zones">Zones</button>
+    <button routerLink="tickets-hand">Tickets</button>
+    <button routerLink="add-clients">Add Client</button>
+    
+  </aside>
+  <aside class="right-sidebar" *ngIf="rightSidebarOpen">
+    <form>
+      <label>Answer the ticket by the ID of:</label>
+      <textarea></textarea>
+      <label>Your answer:</label>
+      <textarea></textarea>
+      <label>You can add a link:</label>
+      <textarea></textarea>
+    </form>
+  </aside>
+
+  
+    <router-outlet></router-outlet>
+  
+</div> -->
+<div class="container">
+  <aside class="left-sidebar">
+    <div class="sidebar-item">
+      <img src="assets/set.png" alt="config icon" />
+      <p>Configuration</p>
+    </div>
+    <button routerLink="zones">gérer carte gloable </button>
+    <button routerLink="tickets-hand">Ticket</button>
+    <button routerLink="add-clients">Client</button>
+    <!-- Add toggle button at the bottom of left sidebar -->
+    <button
+        class="toggle-sidebar"
+        (click)="toggleRightSidebar()"
+        [style.width.px]="50"
+        [style.height.px]="50"
+        [style.borderRadius.%]="50"
+        style="display: flex; align-items: center; justify-content: center; padding: 0; background-color: red; margin-top: 400px"
+    >
+      {{ rightSidebarOpen ? 'Hide' : unresolvedCount +'+'  }}
+    </button>
+
+  </aside>
+
+  <aside class="right-sidebar" *ngIf="rightSidebarOpen">
+    <button class="close-sidebar" (click)="toggleRightSidebar()">×</button>
+
+  <form class="ticket-form" (submit)="submitResponse(); $event.preventDefault()">
+  <h3 class="form-title">Ticket Response</h3>
+
+  <div class="form-group">
+    <label class="form-label">Ticket ID</label>
+    <input [(ngModel)]="ticketId" name="ticketId" type="text"
+           class="form-input" placeholder="Enter ticket ID"
+           (change)="loadResponses(ticketId)" />
+  </div>
+
+  <div class="form-group">
+    <label class="form-label">Your Answer</label>
+    <textarea [(ngModel)]="answer" name="answer"
+              class="form-textarea" rows="4"
+              placeholder="Type your response here..."></textarea>
+  </div>
+
+  <div class="form-group">
+    <label class="form-label">Attach Link (Optional)</label>
+    <input [(ngModel)]="link" name="link" type="url"
+           class="form-input" placeholder="https://example.com" />
+  </div>
+
+  <div class="form-actions">
+    <button type="submit" class="submit-btn">envoyer response</button>
+    <button type="button" class="cancel-btn" (click)="toggleRightSidebar()">annuler</button>
+  </div>
+</form>
+
+<!-- Response Display -->
+<div class="responses-section" *ngIf="responses.length > 0">
+  <h4>anciennes responses</h4>
+
+  <div *ngFor="let response of responses" class="response-card">
+    <p><strong>Message:</strong> {{ response.message }}</p>
+    <p *ngIf="response.youtube_link">
+      <strong>Link:</strong> <a [href]="response.youtube_link" target="_blank">{{ response.youtube_link }}</a>
+    </p>
+    <p><em>By: {{ response.consultant_email || 'Unknown' }}</em></p>
+    <p><em>{{ response.created_at | date: 'short' }}</em></p>
+  </div>
+</div>
+
+
+  </aside>
+
+  
+</div>
+<router-outlet></router-outlet>

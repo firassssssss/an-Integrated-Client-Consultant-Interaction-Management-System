@@ -1,0 +1,41 @@
+.button-bar {
+  background-color: #424242;
+  width: 100%;
+  padding: 15px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  
+  display: flex;
+  gap: 10px;
+}
+.ticket-main-content{
+  margin-left: 130px;
+}
+button {
+  gap:1 0px;
+  margin-top: 70px;
+  width: 380px;
+  padding: 12px 0;
+  background-color: #3366ff;
+  border: none;
+  border-radius: 30px;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #fffb00;
+  color: #424242;
+}
+
+
+
+.content-left{
+  margin-left:150px ;
+}

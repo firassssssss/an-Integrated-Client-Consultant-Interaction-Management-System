@@ -1,0 +1,217 @@
+.container {
+  margin-left: 290px;
+  max-width: 1000px;
+  padding: 1rem;
+  font-family: Arial, sans-serif;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.no-tickets {
+  text-align: center;
+  color: #777;
+  font-style: italic;
+}
+
+.ticket-grid {
+  margin-left: 100px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.ticket-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-left: 5px solid #3f51b5;
+  border-radius: 10px;
+  padding: 1.2rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.ticket-card:hover {
+  transform: translateY(-4px);
+}
+
+.ticket-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.ticket-body {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.ticket-footer {
+  font-size: 0.85rem;
+  color: #999;
+}
+
+.status-badge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: capitalize;
+  color: white;
+}
+
+/* Status badge colors */
+.Créé {
+  background-color: #4caf50; /* green */
+}
+.Vu {
+  background-color: #2196f3; /* blue */
+}
+.Traitement {
+  background-color: #ff9800; /* orange */
+}
+.Répondu {
+  background-color: #9c27b0; /* purple */
+}
+
+/* Timeline styles */
+.ticket-timeline {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding: 10px 0;
+}
+
+/* Base grey horizontal line */
+.ticket-timeline::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  right: 15px;
+  height: 4px;
+  background: #ccc;
+  transform: translateY(-50%);
+  border-radius: 2px;
+  z-index: 0;
+}
+
+/* Green progress line that grows behind the timeline steps */
+.ticket-timeline::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  height: 4px;
+  background-color: #4caf50; /* green */
+  transform: translateY(-50%);
+  border-radius: 2px;
+  z-index: 1;
+  width: 0; /* default: no progress */
+  transition: width 0.3s ease;
+}
+
+/* Green progress line widths by status */
+.ticket-timeline.status-créé::after {
+  width: 25%; /* Covers "Créé" step */
+}
+
+.ticket-timeline.status-vu::after {
+  width: 50%; /* Covers "Créé" + "Vu" steps */
+}
+
+.ticket-timeline.status-traitement::after {
+  width: 75%; /* Covers "Créé" + "Vu" + "Traitement" steps */
+}
+
+.ticket-timeline.status-répondu::after {
+  width: 100%; /* Covers all steps */
+}
+
+/* Timeline step container */
+.timeline-step {
+  position: relative;
+  flex: 1;
+  text-align: center;
+  color: #999;
+  z-index: 2;
+}
+
+/* Icon styling */
+.timeline-step .icon {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  margin: 0 auto;
+  border-radius: 50%;
+  background-color: #ccc;
+  color: white;
+  font-size: 16px;
+  position: relative;
+  z-index: 3;
+}
+
+/* Completed icon colors */
+.timeline-step.completed .icon {
+  background-color: #4caf50;
+}
+
+/* Labels under icons */
+.timeline-step .label {
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/* Consultant-only status change UI */
+.ticket-footer label {
+  font-weight: 600;
+  min-width: 120px;
+}
+
+.ticket-footer select {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  min-width: 160px;
+}
+
+.ticket-footer button {
+  padding: 6px 14px;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.ticket-footer button:hover {
+  background-color: #388e3c;
+}
+.delete-button {
+  text-align: right;
+  margin-bottom: 1rem;
+}
+
+.delete-button button {
+  background-color: #ff4d4f;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.delete-button button:hover {
+  background-color: #e60000;
+}

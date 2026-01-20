@@ -1,0 +1,163 @@
+h2 {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+table {
+  width: 80%;
+  margin-left: 280px;
+  margin-top: 50px;
+  border-collapse: collapse;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+thead {
+  background-color: #4a90e2;
+  color: white;
+}
+
+thead th {
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+tbody td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 13px;
+  color: #444;
+}
+
+tbody tr:hover {
+  background-color: #f5f7fa;
+  transition: background-color 0.2s;
+}
+
+@media (max-width: 768px) {
+  table {
+    font-size: 12px;
+  }
+
+  thead th,
+  tbody td {
+    padding: 10px;
+  }
+}
+form {
+  margin-left:560px ;
+  max-width: 600px;
+  
+  background: #fff;
+  padding: 25px 30px;
+  border-radius: 14px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+form h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 700;
+  color: #2a3d66;
+}
+
+form label {
+  display: inline-block;
+  width: 40%;
+  font-weight: 600;
+  color: #444;
+  font-size: 20 px;
+  line-height: 105px;
+  vertical-align: middle;
+}
+
+form input {
+  display: inline-block;
+  width: 58%;
+  padding: 10px 14px;
+  margin-bottom: 18px;
+  font-size: 14px;
+  border: 2px solid #ccc;
+  border-radius: 30px; /* More rounded */
+  box-sizing: border-box;
+  vertical-align: middle;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+form input:focus {
+  border-color: #3366ff;
+  box-shadow: 0 0 8px rgba(51, 102, 255, 0.4);
+  outline: none;
+}
+
+form button {
+  display: block;
+  width: 100%;
+  padding: 14px 0;
+  margin-top: 15px;
+  background-color: #3366ff;
+  border: none;
+  border-radius: 30px;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #254eda;
+}
+
+/* Responsive: stack on smaller screens */
+@media (max-width: 600px) {
+  form label,
+  form input {
+    display: block;
+    width: 100%;
+  }
+  form label {
+    margin-bottom: 6px;
+  }
+}
+/* Search input styling */
+#searchName {
+  display: block;
+  width: 300px;
+  max-width: 90%;
+  margin: 20px auto 40px auto;
+  padding: 12px 18px;
+  font-size: 16px;
+  border: 2px solid #d1d9e6;
+  border-radius: 12px;
+  box-shadow: inset 0 2px 6px rgb(0 0 0 / 0.05);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  outline: none;
+}
+
+#searchName:focus {
+  border-color: #3366ff;
+  box-shadow: 0 0 8px rgba(51, 102, 255, 0.4);
+}
+
+
+
+@media (max-width: 480px) {
+  #searchName {
+    width: 90%;
+  }
+}
+
+
+@media (max-width: 480px) {
+  #searchName {
+    width: 90%;
+  }
+}

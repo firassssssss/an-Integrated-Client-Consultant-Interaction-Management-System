@@ -1,0 +1,77 @@
+<h2>Devices</h2>
+
+<!-- Search -->
+<label for="searchName">Search by device name:</label>
+<input id="searchName" [(ngModel)]="searchName" (input)="onSearchChange()" placeholder="Enter device name" />
+
+<!-- Devices Table -->
+<table>
+  <thead>
+    <tr>
+    
+      <th>Device ID</th>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Usine</th>
+      <th>Station</th>
+      <th>Model</th>
+      <th>Construction</th>
+      <th>Created</th>
+      <th>index</th>
+      <th>IP</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let device of filteredDevices">
+      <td>{{ device.device_id }}</td>
+      <td>{{ device.device_name }}</td>
+      <td>{{ device.type }}</td>
+      <td>{{ device.usine }}</td>
+      <td>{{ device.station }}</td>
+      <td>{{ device.model }}</td>
+      <td>{{ device.construction }}</td>
+      <td>{{ device.created_at | date:'short' }}</td>
+      <td>{{device.index}}</td>
+      <td>{{ device.ip }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Add Device Form -->
+<h3>Add New Device</h3>
+<form (ngSubmit)="addDevice()" style="margin-left:650px;">
+
+  <label>Device Name:</label>
+  <input [(ngModel)]="newDevice.device_name" name="device_name" required />
+
+
+
+  <label>Type:</label>
+  <input [(ngModel)]="newDevice.type" name="type" required />
+
+  <label>Index:</label>
+  <input [(ngModel)]="newDevice.index" name="index" required />
+
+  <label>Construction:</label>
+  <input [(ngModel)]="newDevice.construction" name="construction" required />
+
+  <label>Model:</label>
+  <input [(ngModel)]="newDevice.model" name="model" required />
+
+  
+  
+
+  
+  
+
+  <label>IP:</label>
+  <input [(ngModel)]="newDevice.ip" name="ip" required />
+
+  <label>Station:</label>
+  <input [(ngModel)]="newDevice.station" name="station" required />
+
+  <label>Usine:</label>
+  <input [(ngModel)]="newDevice.usine" name="usine" required />
+
+  <button type="submit">Add Device</button>
+</form>

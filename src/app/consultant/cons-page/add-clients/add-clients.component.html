@@ -1,0 +1,154 @@
+
+<div class="container">
+  <h2 style="margin-left:400px;">Add New Client</h2>
+  <form (ngSubmit)="addClient()" #clientForm="ngForm">
+
+    <label for="firstname">First Name:</label>
+    <input id="firstname" type="text" name="firstname" [(ngModel)]="newClient.firstname" required
+           placeholder="Enter first name" />
+
+    <label for="lastname">Last Name:</label>
+    <input id="lastname"  type="text" name="lastname" [(ngModel)]="newClient.lastname" required
+           placeholder="Enter last name" />
+
+    <label for="username">Username:</label>
+    <input id="username" type="text" name="username" [(ngModel)]="newClient.username" required
+           placeholder="3 to 30 characters" />
+
+    <label for="email">Email:</label>
+    <input id="email" name="email" type="email" [(ngModel)]="newClient.email" required
+           placeholder="Enter a valid email" />
+
+    <label for="password">Password:</label>
+    <input id="password" name="password" type="password" [(ngModel)]="newClient.password" required
+           placeholder="At least one uppercase, one lowercase & one number" />
+
+    <label for="job">Job:</label>
+    <input id="job" type="text" name="job" [(ngModel)]="newClient.job" placeholder="Enter job title" />
+
+    <label for="phone">Phone:</label>
+    <input id="phone" name="phone" type="tel" [(ngModel)]="newClient.phone"
+           placeholder="10-digit phone number" />
+
+    <label>
+      <input type="checkbox" [(ngModel)]="newClient.status" name="status" />
+      Active Status
+    </label>
+
+    <label for="device_reserved">Devices Reserved:</label>
+    <input id="device_reserved" name="device_reserved" type="number" [(ngModel)]="newClient.device_reserved"
+           placeholder="Number of devices reserved" />
+
+    <label for="device_installed">Devices Installed:</label>
+    <input id="device_installed" name="device_installed" type="number" [(ngModel)]="newClient.device_installed"
+           placeholder="Number of devices installed" />
+
+    <label for="device_connected">Devices Connected:</label>
+    <input id="device_connected" name="device_connected" type="number" [(ngModel)]="newClient.device_connected"
+           placeholder="Number of devices connected" />
+
+    <button type="submit" [disabled]="clientForm.invalid">Add Client</button>
+  </form>
+
+  
+
+  <h3 style="margin-left: 530px;">Clients List</h3>
+  <input
+    style="margin-left: 200px; margin-bottom: 10px;"
+    type="text"
+    placeholder="Search by name..."
+    [(ngModel)]="searchTerm"
+    (input)="filterClients()"
+  />
+
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Firstname</th>
+          <th>Lastname</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Job</th>
+          <th>Phone</th>
+          <th>Status</th>
+          <th>Devices Reserved</th>
+          <th>Devices Installed</th>
+          <th>Devices Connected</th>
+          <th>Created At</th>
+          <th>Updated At</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let client of filteredClients" [class.selected]="selectedClient?._id === client._id" (click)="selectedClient = client">
+
+          <!-- Firstname -->
+          <td *ngIf="editingClient?._id !== client._id">{{ client.firstname }}</td>
+          <td *ngIf="editingClient?._id === client._id">
+            <input [(ngModel)]="editingClient.firstname" />
+          </td>
+
+          <!-- Lastname -->
+          <td *ngIf="editingClient?._id !== client._id">{{ client.lastname }}</td>
+          <td *ngIf="editingClient?._id === client._id">
+            <input [(ngModel)]="editingClient.lastname" />
+          </td>
+
+          <!-- Username -->
+          <td *ngIf="editingClient?._id !== client._id">{{ client.username }}</td>
+          <td *ngIf="editingClient?._id === client._id">
+            <input [(ngModel)]="editingClient.username" />
+          </td>
+
+          <!-- Email -->
+          <td *ngIf="editingClient?._id !== client._id">{{ client.email }}</td>
+          <td *ngIf="editingClient?._id === client._id">
+            <input [(ngModel)]="editingClient.email" />
+          </td>
+
+          <!-- Job -->
+          <td *ngIf="editingClient?._id !== client._id">{{ client.job }}</td>
+          <td *ngIf="editingClient?._id === client._id">
+            <input [(ngModel)]="editingClient.job" />
+          </td>
+
+          <!-- Phone -->
+          <td *ngIf="editingClient?._id !== client._id">{{ client.phone }}</td>
+          <td *ngIf="editingClient?._id === client._id">
+            <input [(ngModel)]="editingClient.phone" />
+          </td>
+
+          <!-- Status -->
+          <td *ngIf="editingClient?._id !== client._id">{{ client.status ? 'Active' : 'Inactive' }}</td>
+          <td *ngIf="editingClient?._id === client._id">
+            <input type="checkbox" [(ngModel)]="editingClient.status" />
+          </td>
+
+          <!-- Devices -->
+          <td>{{ client.device_reserved }}</td>
+          <td>{{ client.device_installed }}</td>
+          <td>{{ client.device_connected }}</td>
+
+          <!-- Created/Updated -->
+          <td>{{ client.created_at ? (client.created_at | date:'medium') : '-' }}</td>
+          <td>{{ client.updated_at ? (client.updated_at | date:'medium') : '-' }}</td>
+
+          <!-- Actions -->
+          <td>
+            <button *ngIf="editingClient?._id !== client._id" class="edit-btn" (click)="enableEdit(client)">modifier</button>
+            <div *ngIf="editingClient?._id === client._id">
+              <button class="save-btn" (click)="saveEdit()">Save</button>
+              <button class="cancel-btn" (click)="cancelEdit()">Cancel</button>
+            </div>
+            <button id="removeClient" 
+        [disabled]="selectedClient?._id !== client._id" 
+        (click)="removeClient()">
+  supprimer
+</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

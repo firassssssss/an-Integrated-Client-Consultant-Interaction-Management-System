@@ -1,0 +1,62 @@
+<div class="map-container">
+    <div #mapContainer id="map"></div>
+
+    <div class="toolbar">
+      <button (click)="toggleFreeze()">
+        {{ freeze ? 'Unfreeze Map' : 'Freeze Map' }}
+      </button>
+
+      <button (click)="togglePlacing()" [class.active]="placingMode">
+        {{ placingMode ? 'Stop Placing Dots' : 'Place Dots' }}
+      </button>
+
+      <div class="color-palette">
+        <div *ngFor="let color of colors"
+            [style.backgroundColor]="color"
+            (click)="selectColor(color)"
+            [class.selected]="color === selectedColor"
+            class="color-dot"></div>
+      </div>
+
+      <div class="search-container">
+        <input
+          type="text"
+          placeholder="Search location..."
+          [(ngModel)]="searchQuery"
+          (input)="onSearchInput()"
+          (focus)="searchFocused = true"
+          (blur)="searchFocused = false"
+          autocomplete="off"
+        />
+        <ul class="search-results" *ngIf="searchFocused && searchResults.length > 0">
+          <li *ngFor="let result of searchResults" (mousedown)="selectSearchResult(result)">
+            {{ result.name }}
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  <div id="dots-container">
+    <div *ngFor="let dot of dots"
+        class="draggable-dot"
+        [style.backgroundColor]="dot.color"
+        [style.left.px]="dot.x"
+        [style.top.px]="dot.y"
+        [style.transform]="'translate(-50%, -50%) scale(' + scale + ')'"
+        (mousedown)="startDrag($event, dot)"
+        (touchstart)="startDrag($event, dot)">
+    </div>
+  </div>
+
+
+</div>
+<button id="btn-show" (click)="showProgressPanel = true">Show Progress Panel</button>
+
+<div class="slide-panel-overlay"  *ngIf="showProgressPanel">
+  <div class="slide-panel">
+    <button class="close-btn" (click)="hideChart()">✕</button>
+    <app-circular-progress [userEmail]="email"></app-circular-progress>
+  </div>
+</div>
+
+<button  class="save" (click)="saveDots()">💾 Save Markers</button>

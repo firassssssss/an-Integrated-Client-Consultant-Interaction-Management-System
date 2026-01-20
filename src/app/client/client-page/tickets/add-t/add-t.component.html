@@ -1,0 +1,65 @@
+<div class="form-container">
+  <h2>Nouvelle Ticket</h2>
+  <form (ngSubmit)="submitForm()" #ticketForm="ngForm" novalidate>
+    
+    <label for="breve_description">Brève Description</label>
+    <input
+      id="breve_description"
+      type="text"
+      [(ngModel)]="ticket.breve_description"
+      name="breve_description"
+      required
+      #breveDesc="ngModel"
+    />
+    <div *ngIf="breveDesc.invalid && breveDesc.touched" class="error">
+      Brève Description is required.
+    </div>
+
+    <label for="info_complementaires">Informations Complémentaires</label>
+    <textarea
+      id="info_complementaires"
+      [(ngModel)]="ticket.info_complementaires"
+      name="info_complementaires"
+    ></textarea>
+
+    <label for="device_name">Device Name</label>
+    <input
+      id="device_name"
+      type="text"
+      [(ngModel)]="ticket.device_name"
+      name="device_name"
+      required
+      #deviceName="ngModel"
+    />
+    <div *ngIf="deviceName.invalid && deviceName.touched" class="error">
+      Device Name is required.
+    </div>
+
+    <label for="device_id">Device ID</label>
+    <input
+      id="device_id"
+      type="text"
+      [(ngModel)]="ticket.device_id"
+      name="device_id"
+      required
+      #deviceId="ngModel"
+    />
+    <div *ngIf="deviceId.invalid && deviceId.touched" class="error">
+      Device ID is required.
+    </div>
+
+    <label for="type_probleme">Type de Problème</label>
+    <select
+      id="type_probleme"
+      [(ngModel)]="ticket.type_probleme"
+      name="type_probleme"
+    >
+      <option value="hardware">Hardware</option>
+      <option value="software">Software</option>
+    </select>
+
+    <button type="submit" [disabled]="ticketForm.invalid">
+      envoyer ticket
+    </button>
+  </form>
+</div>

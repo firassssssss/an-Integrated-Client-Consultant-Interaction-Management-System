@@ -1,0 +1,183 @@
+:host {
+  display: block;
+  min-height: 110vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Video Background */
+.video-background {
+  position: fixed;
+  top: 70px; /* Start below header */
+  left: 0;
+  width: 100vw;
+  height: calc(100vh - 70px); /* Account for header */
+  object-fit: cover;
+  z-index: -2;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Gradient Overlay */
+.gradient-overlay {
+  position: fixed;
+  top: 70px; /* Start below header */
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 70px);
+  background: linear-gradient(135deg, #000000 0%, #ffffff 100%);
+  opacity: 0.7;
+  z-index: -1;
+}
+
+/* Bond-Style Header */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background: linear-gradient(135deg, #000000 0%, #000000 100%);
+  
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+header img {
+  height: 50px;
+  width: 50px; /* Make width equal to height for perfect circle */
+  border-radius: 50%;
+  padding: 5px;
+  background: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  object-fit: contain; /* Ensures logo fits properly */
+}
+header img:hover {
+  transform: rotate(15deg); /* Fun hover animation */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Enhanced shadow on hover */
+}
+
+/* Welcome Screen (adjusted for header) */
+.welcome-screen {
+  position: relative;
+  text-align: center;
+  padding: 3rem 1rem;
+  max-width: 600px;
+  margin: 100px auto 2rem; /* Adjusted top margin */
+  border-radius: 120px;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.welcome-screen h1 {
+  color: #0080ff22;
+  font-size: 8rem;
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+  font-weight: 600;
+  background: linear-gradient(to right, #1f7bfb, #ffea00);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Buttons (unchanged) */
+.nav-btn {
+  padding: 12px 28px;
+  margin: 0 12px;
+  font-size: 2rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.nav-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200%;
+  background: linear-gradient(45deg,  #1f7bfb, #ffff00);
+  z-index: -1;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+  border-radius: 30px;
+}
+
+.nav-btn:hover::before {
+  opacity: 1;
+}
+
+.nav-btn:first-child {
+  background-color: #3498db;
+  color: white;
+}
+
+.nav-btn:last-child {
+  background-color: #03a3ff;
+  color: white;
+}
+
+.nav-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.nav-btn:active {
+  transform: translateY(1px);
+}
+
+/* Animation (unchanged) */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design (unchanged) */
+@media (max-width: 600px) {
+  .welcome-screen {
+    padding: 2rem 1rem;
+    margin: 80px auto 1rem; /* Adjusted for mobile */
+  }
+  
+  .welcome-screen h1 {
+    font-size: 2rem;
+  }
+  
+  .nav-btn {
+    padding: 10px 20px;
+    margin: 0 8px;
+    display: block;
+    width: 80%;
+    margin: 0 auto 1rem;
+  }
+  
+  header {
+    height: 60px; /* Slightly smaller header on mobile */
+  }
+  
+  header img {
+    height: 40px;
+  }
+  
+  .video-background,
+  .gradient-overlay {
+    top: 60px;
+    height: calc(100vh - 60px);
+  }
+}

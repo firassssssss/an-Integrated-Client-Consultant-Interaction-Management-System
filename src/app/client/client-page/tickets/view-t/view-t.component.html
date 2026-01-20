@@ -1,0 +1,87 @@
+<div class="container">
+  <h2>Mes Tickets</h2>
+
+  <div *ngIf="tickets.length === 0" class="no-tickets">
+    Aucun ticket trouvé.
+  </div>
+  <div class="delete-button" *ngIf="tickets.length > 0">
+    <button (click)="deleteAllTickets()">🗑️ Supprimer tous les tickets</button>
+  </div>
+
+
+  <div class="ticket-grid">
+    <div class="ticket-card" *ngFor="let ticket of tickets">
+      <div class="ticket-header">
+        <div
+          class="status-badge"
+          [ngClass]="{
+            'Créé': ticket.status === 'Créé',
+            'Vu': ticket.status === 'Vu',
+            'Traitement': ticket.status === 'Traitement',
+            'Répondu': ticket.status === 'Répondu'
+          }"
+        >
+          {{ ticket.status }}
+        </div>
+      </div>
+
+      <div class="ticket-body">
+        <p><strong>Appareil:</strong> {{ ticket.device_name }} ({{ ticket.device_id }})</p>
+        <p><strong>Description:</strong> {{ ticket.breve_description }}</p>
+        <p><strong>Infos complémentaires:</strong> {{ ticket.info_complementaires }}</p>
+      </div>
+
+      <div class="ticket-footer">
+        <p><strong>Créé le:</strong> {{ ticket.created_at ? (ticket.created_at | date:'medium') : 'Date inconnue' }}</p>
+
+        <div 
+          class="ticket-timeline"
+          [ngClass]="{
+            'status-créé': ticket.status === 'Créé',
+            'status-vu': ticket.status === 'Vu',
+            'status-traitement': ticket.status === 'Traitement',
+            'status-répondu': ticket.status === 'Répondu'
+          }"
+        >
+          <div class="timeline-step" [class.completed]="
+            ticket.status === 'Créé' || ticket.status === 'Vu' || ticket.status === 'Traitement' || ticket.status === 'Répondu'
+          ">
+            <div class="icon">🎁</div>
+            <div class="label">Créé</div>
+          </div>
+
+          <div class="timeline-step" [class.completed]="
+            ticket.status === 'Vu' || ticket.status === 'Traitement' || ticket.status === 'Répondu'
+          ">
+            <div class="icon">👁️</div>
+            <div class="label">Vu</div>
+          </div>
+
+          <div class="timeline-step" [class.completed]="
+            ticket.status === 'Traitement' || ticket.status === 'Répondu'
+          ">
+            <div class="icon">🔧</div>
+            <div class="label">Traitement</div>
+          </div>
+
+          <div class="timeline-step" [class.completed]="ticket.status === 'Répondu'">
+            <div class="icon">✅</div>
+            <div class="label">Répondu</div>
+          </div>
+        </div>
+
+        <div *ngIf="isConsultant" style="margin-top: 10px;">
+          <label for="status-select-{{ticket._id}}">Changer le statut :</label>
+          <select id="status-select-{{ticket._id}}" [(ngModel)]="ticket.status">
+            <option value="Créé">Créé</option>
+            <option value="Vu">Vu</option>
+            <option value="Traitement">Traitement</option>
+            <option value="Répondu">Répondu</option>
+          </select>
+          <button (click)="updateStatus(ticket)">Mettre à jour</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>
