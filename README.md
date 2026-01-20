@@ -61,6 +61,8 @@ To get more help on the Angular CLI use `ng help` or check out the [Angular CLI 
 
 <img width="1897" height="859" alt="Image" src="https://github.com/user-attachments/assets/c23072ea-f4c4-4dde-81d8-271f442d1434" />
 
+<img width="1919" height="860" alt="Image" src="https://github.com/user-attachments/assets/ef447b71-89f6-43c4-bd3f-6cf1f4bab2bb" />
+
 
 
 
